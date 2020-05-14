@@ -16,13 +16,11 @@ Connected = False   #global variable for the state of the connection
 
 # After you successfully the publisher and subscribe code, 
 # try to create your own MQTT broker by create an account at cloudmqtt.com
-broker_address= 'your cloud broker url'
-port = 'your cloud broker port' # do not type string, but change to integer
-username = 'your username'
-password = 'your password'
+broker_address= 'mqtt.eclipse.org'
+port = 1883 
+
  
-client = mqttClient.Client('Python')               #create new instance
-client.username_pw_set(user, password=password)    #set username and password
+client = mqttClient.Client()               #create new instance
 client.on_connect= on_connect                      #attach function to callback
 client.connect(broker_address, port=port)          #connect to broker
  
@@ -33,8 +31,8 @@ while Connected != True:    #Wait for connection
  
 try:
     while True: 
-        value = input('Enter the message:')
-        client.publish('python/', value)
+        #value = input('Enter the message:')
+        client.publish('myhome/bena170010178/kitchen')
  
 except KeyboardInterrupt:
     client.disconnect()

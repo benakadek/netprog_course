@@ -4,7 +4,7 @@ import imaplib
 
 GOOGLE_IMAP_SERVER = 'imap.googlemail.com'
 
-def check_email(username): 
+def check_email(username):
     mailbox = imaplib.IMAP4_SSL(GOOGLE_IMAP_SERVER, '993') 
     password = getpass.getpass(prompt="Enter your Google password: ") 
     mailbox.login(username, password)
